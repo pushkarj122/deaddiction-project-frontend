@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import pharmacyCard from '../../../assets/Pharmacycard.png';
-import emgCard4 from '../../../assets/EmgCard4.png';
-import trackingCard5 from '../../../assets/Trackingcard5.png';
-import LandingpageFAQSection from './LandingpageFAQSection'
-import LandingpageFooter from "../../../components/Footer";
+import pharmacyCard from '../../../assets/LandingPageImage/Pharmacycard.png';
+import emgCard4 from '../../../assets/LandingPageImage/EmgCard4.png';
+import trackingCard5 from '../../../assets/LandingPageImage/Trackingcard5.png';
+
 
 const TreatmentCenters = () => {
   const slides = [
