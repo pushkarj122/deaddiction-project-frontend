@@ -1,10 +1,10 @@
 import React from "react";
-import searchCardImage from "../../../assets/Searchcard.png";
-import onlinePharmacyImage from "../../../assets/Pharmacycard.png"; 
-import consultationImage from "../../../assets/card3.png"; 
-import emergencyCareImage from "../../../assets/EmgCard4.png"; 
-import trackingImage from "../../../assets/Trackingcard5.png"; 
-import detailInfoImage from "../../../assets/Detailcard.png"; 
+import searchCardImage from "../../../assets/LandingPageImage/Searchcard.png";
+import onlinePharmacyImage from "../../../assets/LandingPageImage/Pharmacycard.png"; 
+import consultationImage from "../../../assets/LandingPageImage/card3.png"; 
+import emergencyCareImage from "../../../assets/LandingPageImage/EmgCard4.png"; 
+import trackingImage from "../../../assets/LandingPageImage/Trackingcard5.png"; 
+import detailInfoImage from "../../../assets/LandingPageImage/Detailcard.png"; 
 import LandingpageIntroSection from "./LandingpageIntroSection";
 
 const servicesData = [
