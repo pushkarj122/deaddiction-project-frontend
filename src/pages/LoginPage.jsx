@@ -16,14 +16,14 @@ function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-blue-200">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md relative overflow-hidden">
-        <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-blue-400 rounded-full blur-xl opacity-50"></div>
-        <div className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 w-48 h-48 bg-blue-500 rounded-full blur-xl opacity-50"></div>
+        <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
+        <div className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
 
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">De-Addiction Centre Log In</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">Log In</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-              Email
+              Email*
             </label>
             <input
               type="email"
@@ -36,7 +36,7 @@ function LoginPage() {
           </div>
           <div>
             <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
-              Password
+              Password*
             </label>
             <input
               type="password"
@@ -60,9 +60,6 @@ function LoginPage() {
           >
             Login
           </button>
-          <p className="mt-5 mb-3 text-center text-gray-600" style={{ color: '#27374D' }}>
-            &copy; Gov Auth Platform
-          </p>
         </form>
       </div>
     </div>
