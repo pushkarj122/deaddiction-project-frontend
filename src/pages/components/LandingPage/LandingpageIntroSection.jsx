@@ -1,5 +1,5 @@
 import React from "react";
-import Intro from "../../../assets/intro.png";
+import Intro from "../../../assets/LandingPageImage/intro.png";
 
 
 const LandingpageIntroSection = () => {
