@@ -1,5 +1,10 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const LandingpageFooter = () => {
   return (
@@ -9,8 +14,8 @@ const LandingpageFooter = () => {
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl font-bold mb-2">Company Name</h2>
             <p className="text-black">
-              We are committed to providing the best healthcare solutions.
-              Our focus is on quality, accessibility, and affordability.
+              We are committed to providing the best healthcare solutions. Our
+              focus is on quality, accessibility, and affordability.
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" aria-label="Facebook">

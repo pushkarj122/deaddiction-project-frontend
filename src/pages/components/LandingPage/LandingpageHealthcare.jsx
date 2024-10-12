@@ -10,9 +10,9 @@ const LandingpageHealthcare = () => {
             Leading Healthcare Providers
           </h2>
           <p className="text-base sm:text-lg text-gray-600 mb-4">
-            Trafalgar provides progressive and affordable healthcare, accessible on mobile
-            and online for everyone. To us, it's not just work. We take pride in the
-            solutions we deliver.
+            Trafalgar provides progressive and affordable healthcare, accessible
+            on mobile and online for everyone. To us, it's not just work. We
+            take pride in the solutions we deliver.
           </p>
           <button className="bg-[#458FF6] text-white py-2 px-5 rounded-lg shadow hover:bg-blue-600 transition">
             Learn More

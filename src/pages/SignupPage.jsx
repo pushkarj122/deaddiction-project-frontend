@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignupPage() {
-    const [emailError, setEmailError] = useState('');
-    const [email, setEmail] = useState('');
-    const validateEmail = (email) => {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!re.test(email)) {
-        return "Please enter a valid email address.";
-      }
-      return null; // No error
-    };
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword]   
- = useState('');
-  const [centreId, setCentreId] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const [emailError, setEmailError] = useState("");
+  const [email, setEmail] = useState("");
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+      return "Please enter a valid email address.";
+    }
+    return null; // No error
+  };
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [centreId, setCentreId] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-  const   
- validatePassword = (password) => {
+  const validatePassword = (password) => {
     const minLength = 6;
     const hasUpperCase = /[A-Z]/.test(password);
     const hasLowerCase = /[a-z]/.test(password);
-    const   
- hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-    const hasNumericChar   
- = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasNumericChar = /\d/.test(password);
 
     if (password.length < minLength) {
       return "Password must be at least " + minLength + " characters long.";
@@ -38,8 +34,7 @@ function SignupPage() {
       return "Password must contain at least one lowercase letter.";
     }
     if (!hasSpecialChar) {
-      return "Password must contain at least one special character.";   
-
+      return "Password must contain at least one special character.";
     }
     if (!hasNumericChar) {
       return "Password must contain at least one numeric character.";
@@ -58,7 +53,10 @@ function SignupPage() {
     event.preventDefault();
 
     const passwordErr = validatePassword(password);
-    const confirmPasswordErr = validateConfirmPassword(password, confirmPassword);
+    const confirmPasswordErr = validateConfirmPassword(
+      password,
+      confirmPassword
+    );
 
     setPasswordError(passwordErr);
     setConfirmPasswordError(confirmPasswordErr);
@@ -68,9 +66,9 @@ function SignupPage() {
     }
 
     // Handle signup logic here if no errors
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Centre ID:', centreId);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Centre ID:", centreId);
   };
 
   return (
@@ -79,10 +77,15 @@ function SignupPage() {
         <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
         <div className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
 
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">
+          Sign Up
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Email*
             </label>
             <input
@@ -93,14 +96,19 @@ function SignupPage() {
               onChange={(e) => {
                 setEmail(e.target.value);
                 // Call validateEmail with the updated value from e.target.value
-                setEmailError(validateEmail(e.target.value)); 
+                setEmailError(validateEmail(e.target.value));
               }}
               required
             />
-            {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
+            {emailError && (
+              <p className="text-red-500 text-sm mt-1">{emailError}</p>
+            )}
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Password*
             </label>
             <input
@@ -115,30 +123,43 @@ function SignupPage() {
               }}
               required
             />
-            {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>}
+            {passwordError && (
+              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+            )}
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Confirm Password*
             </label>
             <input
               type="password"
-              id="confirmPassword"   
-
+              id="confirmPassword"
               className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2   
  focus:ring-blue-500"
               value={confirmPassword}
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
                 // Validate on change to update dynamically
-                setConfirmPasswordError(validateConfirmPassword(password, e.target.value));
+                setConfirmPasswordError(
+                  validateConfirmPassword(password, e.target.value)
+                );
               }}
               required
             />
-            {confirmPasswordError && <p className="text-red-500 text-sm mt-1">{confirmPasswordError}</p>}
+            {confirmPasswordError && (
+              <p className="text-red-500 text-sm mt-1">
+                {confirmPasswordError}
+              </p>
+            )}
           </div>
           <div>
-            <label htmlFor="centreId" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="centreId"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Centre ID*
             </label>
             <input
@@ -151,7 +172,7 @@ function SignupPage() {
             />
           </div>
           <div className="text-center text-sm text-gray-600">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <Link to="/login" className="text-blue-500 hover:underline">
               Log in
             </Link>
