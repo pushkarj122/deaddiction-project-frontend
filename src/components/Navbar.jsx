@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { LoginButton, SignUpButton } from "./Buttons"; 
+import { LoginButton, SignUpButton } from "./Buttons";
 
 const LandingpageNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation(); 
+  const location = useLocation();
 
   const isRootRoute = location.pathname === "/";
 
