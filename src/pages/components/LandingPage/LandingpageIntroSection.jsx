@@ -1,11 +1,9 @@
 import React from "react";
 import Intro from "../../../assets/LandingPageImage/intro.png";
 
-
 const LandingpageIntroSection = () => {
   return (
     <>
-      
       <section className="flex flex-col md:flex-row items-center justify-between p-6 md:p-8 rounded-lg shadow-md bg-white">
         <div className="md:w-1/2 mb-8 ml-12 md:mb-0 flex flex-col items-start">
           <h2 className="text-3xl md:text-4xl font-bold text-[#458FF6]">
