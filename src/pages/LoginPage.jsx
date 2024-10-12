@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
 
   return (
@@ -19,10 +18,15 @@ function LoginPage() {
         <div className="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
         <div className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 w-48 h-48 rounded-full blur-xl opacity-50"></div>
 
-        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">Log In</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">
+          Log In
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Email*
             </label>
             <input
@@ -35,7 +39,10 @@ function LoginPage() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium mb-2"
+            >
               Password*
             </label>
             <input
@@ -48,7 +55,7 @@ function LoginPage() {
             />
           </div>
           <div className="text-center text-sm text-gray-600">
-            Not registered with Gov account?{' '}
+            Not registered with Gov account?{" "}
             <Link to="/signup" className="text-blue-500 hover:underline">
               Register Now
             </Link>
