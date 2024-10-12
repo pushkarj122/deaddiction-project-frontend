@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { LoginButton, SignUpButton } from "./Buttons"; 
 
 const LandingpageNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation(); 
+  const [navbarBg, setNavbarBg] = useState("bg-white");
+  const location = useLocation();
 
   const isRootRoute = location.pathname === "/";
+  const isSearchRoute = location.pathname === "/search";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50 || isSearchRoute) {
+        setNavbarBg("bg-blue-100 shadow-md");
+      } else {
+        setNavbarBg("bg-white");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isSearchRoute]);
 
   return (
-    <header className="bg-white text-blue-700 p-4 shadow">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className={`fixed top-0 left-0 w-full z-50 ${navbarBg} text-blue-700 transition-colors duration-300`}>
+      <div className="container mx-auto flex justify-between items-center py-4">
         <div className="flex items-center ml-10">
           <div className="bg-[#458FF6] text-white font-bold text-xl flex justify-center items-center w-10 h-10 rounded-full mr-3">
             D
@@ -35,8 +53,8 @@ const LandingpageNavbar = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden mt-4">
-          <nav className="flex flex-col space-y-4">
+        <div className="md:hidden mt-4 bg-white rounded-lg shadow-lg">
+          <nav className="flex flex-col space-y-4 p-4">
             {isRootRoute ? (
               <>
                 <LoginButton />

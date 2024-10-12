@@ -18,7 +18,7 @@ export const SignUpButton = () => (
 );
 
 export const LogoutButton = () => (
-  <button className="bg-[#458FF6] text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+  <button className="bg-[#458FF6] text-white py-2 px-4 rounded  hover:bg-blue-600 transition">
    Logout
   </button>
 );
