@@ -7,6 +7,8 @@ import SearchPage from "../pages/SearchPage";
 import ProfileSetup from "../pages/ProfileSetup";
 import NewPatientDataForm from "../pages/NewPatientDataForm";
 import NewEventDataForm from "../pages/NewEventDataForm";
+import PatientRecord from "../pages/PatientRecord";
+import EventRecord from "../pages/EventRecord"; 
 
 const AppRoutes = () => {
   return (
@@ -19,6 +21,8 @@ const AppRoutes = () => {
         <Route path="/profile-setup" element={<ProfileSetup />} />
         <Route path="/add-patient" element={<NewPatientDataForm />} />
         <Route path="/create-event" element={<NewEventDataForm />} />
+        <Route path="/patientrecord" element={<PatientRecord />} />
+        <Route path="/eventrecord" element={<EventRecord />} /> 
       </Routes>
     </Router>
   );
