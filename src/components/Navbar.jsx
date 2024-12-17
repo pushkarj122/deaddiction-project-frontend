@@ -10,22 +10,17 @@ const LandingpageNavbar = () => {
 
   const isRootRoute = location.pathname === "/";
   const isSearchRoute = location.pathname === "/search";
+  const isProfilePage = location.pathname === "/profilepage";
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50 || isSearchRoute) {
-        setNavbarBg("bg-blue-100 shadow-md");
-      } else {
-        setNavbarBg("bg-white");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isSearchRoute]);
+    if (isProfilePage) {
+      setNavbarBg("bg-blue-100");
+    } else if (window.scrollY > 50 || isSearchRoute) {
+      setNavbarBg("bg-blue-100 shadow-md");
+    } else {
+      setNavbarBg("bg-white");
+    }
+  }, [isSearchRoute, isProfilePage, location.pathname]);
 
   return (
     <header
