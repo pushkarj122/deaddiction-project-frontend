@@ -7,8 +7,15 @@ import {
   FaBuilding,
   FaEnvelope,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className="flex flex-col md:flex-row items-center bg-gradient-to-br from-sky-100 to-white p-10 rounded-1xl max-w-8xl mx-auto mt-[90px] space-y-6 md:space-y-0 md:space-x-16 border border-sky-300 shadow-lg">
       <div className="flex-shrink-0 relative w-full md:w-96">
@@ -61,10 +68,16 @@ const ProfileCard = () => {
           </p>
         </div>
         <div className="mt-10 flex space-x-6">
-          <button className="bg-sky-500 text-white px-8 py-3 text-lg rounded-full shadow-md hover:bg-sky-600 hover:scale-105 transition">
+          <button
+            className="bg-sky-500 text-white px-8 py-3 text-lg rounded-full shadow-md hover:bg-sky-600 hover:scale-105 transition"
+            onClick={() => handleNavigation("/eventrecord")}
+          >
             Event Data
           </button>
-          <button className="bg-sky-500 text-white px-8 py-3 text-lg rounded-full shadow-md hover:bg-sky-600 hover:scale-105 transition">
+          <button
+            className="bg-sky-500 text-white px-8 py-3 text-lg rounded-full shadow-md hover:bg-sky-600 hover:scale-105 transition"
+            onClick={() => handleNavigation("/patientrecord")}
+          >
             Patient Data
           </button>
         </div>

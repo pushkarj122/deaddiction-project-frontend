@@ -13,6 +13,7 @@ import {
   Paper,
 } from "@mui/material";
 import { Edit, Delete } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom"; 
 
 const events = [
   {
@@ -36,6 +37,7 @@ const events = [
 ];
 
 const EventRecord = () => {
+  const navigate = useNavigate(); 
   const [openModal, setOpenModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [eventsList, setEventsList] = useState(events);
@@ -58,8 +60,12 @@ const EventRecord = () => {
     [eventsList]
   );
 
+  const handleAddNewEvent = () => {
+    navigate("/create-event"); 
+  };
+
   const handleGoToProfile = () => {
-    alert("Navigate to profile page (implement navigation here).");
+    navigate("/profilepage"); 
   };
 
   return (
@@ -84,10 +90,18 @@ const EventRecord = () => {
           mb: 3,
         }}
       >
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddNewEvent}
+        >
           Add New Event
         </Button>
-        <Button variant="contained" color="primary" onClick={handleGoToProfile}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleGoToProfile} 
+        >
           Go to Profile Page
         </Button>
       </Box>
