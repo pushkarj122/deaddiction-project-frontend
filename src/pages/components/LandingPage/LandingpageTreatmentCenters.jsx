@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import pharmacyCard from "../../../assets/LandingPageImage/Pharmacycard.png";
-import emgCard4 from "../../../assets/LandingPageImage/EmgCard4.png";
-import trackingCard5 from "../../../assets/LandingPageImage/Trackingcard5.png";
+import pharmacyCard from "../../../assets/LandingPageImage/list1.jpg";
+import emgCard4 from "../../../assets/LandingPageImage/list2.jpg";
+import trackingCard5 from "../../../assets/LandingPageImage/list3.jpg";
+import trackingCard6 from "../../../assets/LandingPageImage/list4.jpg";
 
 const TreatmentCenters = () => {
   const slides = [
@@ -10,25 +11,25 @@ const TreatmentCenters = () => {
       location: "India",
       description:
         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, ducimus.",
-      cost: "From $500",
+      
     },
     {
       img: emgCard4,
       location: "Location 2",
       description: "Description for location 2.",
-      cost: "From $600",
+      
     },
     {
       img: trackingCard5,
       location: "Location 3",
       description: "Description for location 3.",
-      cost: "From $700",
+      
     },
     {
-      img: emgCard4,
+      img: trackingCard6,
       location: "Location 4",
       description: "Description for location 4.",
-      cost: "From $800",
+      
     },
   ];
 
@@ -68,9 +69,6 @@ const TreatmentCenters = () => {
               alt={slides[currentSlide].location}
               className="w-full h-64 object-cover"
             />
-            <div className="absolute bottom-4 left-4 bg-white p-2 rounded shadow">
-              <p className="font-bold">{slides[currentSlide].cost}</p>
-            </div>
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
               <h1 className="text-xl md:text-2xl text-white">
                 {slides[currentSlide].location}

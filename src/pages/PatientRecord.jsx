@@ -114,10 +114,10 @@ const PatientRecord = () => {
           mb: 3,
         }}
       >
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" href="/add-patient">
           Add New Data
         </Button>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" href="/profilepage">
           Go to Profile Page
         </Button>
       </Box>

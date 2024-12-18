@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { LoginButton, SignUpButton } from "./Buttons";
 
@@ -36,12 +36,16 @@ const LandingpageNavbar = () => {
       className={`fixed top-0 left-0 w-full z-50 ${navbarBg} text-blue-700 transition-colors duration-300`}
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <div className="flex items-center space-x-3">
+        <Link
+          to="/"
+          className="flex items-center space-x-3 cursor-pointer"
+          onClick={() => setIsMenuOpen(false)}
+        >
           <div className="bg-[#458FF6] text-white font-bold text-xl flex justify-center items-center w-12 h-12 rounded-full">
             D
           </div>
           <h1 className="text-3xl font-semibold text-sky-700">DeAddiction</h1>
-        </div>
+        </Link>
 
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
