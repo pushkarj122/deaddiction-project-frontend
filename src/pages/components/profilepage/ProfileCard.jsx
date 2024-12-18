@@ -10,7 +10,7 @@ import {
 
 const ProfileCard = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center bg-gradient-to-br from-sky-100 to-white p-10 rounded-1xl max-w-8xl mx-auto mt-20 space-y-6 md:space-y-0 md:space-x-16 border border-sky-300 shadow-lg">
+    <div className="flex flex-col md:flex-row items-center bg-gradient-to-br from-sky-100 to-white p-10 rounded-1xl max-w-8xl mx-auto mt-[90px] space-y-6 md:space-y-0 md:space-x-16 border border-sky-300 shadow-lg">
       <div className="flex-shrink-0 relative w-full md:w-96">
         <img
           src="https://rehabcenters.com/wp-content/uploads/rehab-4.jpg"
