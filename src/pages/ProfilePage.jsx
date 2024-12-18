@@ -6,7 +6,7 @@ import ProfileSpecializations from "./components/ProfilePage/ProfileSpecializati
 import Footer from "../components/Footer";
 import ProfileProgram from "./components/ProfilePage/ProfileProgram";
 import ProfileApproach from "./components/ProfilePage/ProfileApproach";
-const Profilepage = () => {
+const ProfilePage = () => {
   return (
     <>
       <Navbar />
@@ -20,4 +20,4 @@ const Profilepage = () => {
   );
 };
 
-export default Profilepage;
+export default ProfilePage;
