@@ -9,7 +9,7 @@ import NewPatientDataForm from "../pages/NewPatientDataForm";
 import NewEventDataForm from "../pages/NewEventDataForm";
 import PatientRecord from "../pages/PatientRecord";
 import EventRecord from "../pages/EventRecord"; 
-import ProfilePage from "../pages/profilepage"
+import ProfilePage from "../pages/Profilepage"
 
 const AppRoutes = () => {
   return (
