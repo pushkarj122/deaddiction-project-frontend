@@ -14,9 +14,6 @@ const LandingpageHealthcare = () => {
             on mobile and online for everyone. To us, it's not just work. We
             take pride in the solutions we deliver.
           </p>
-          <button className="bg-[#458FF6] text-white py-2 px-5 rounded-lg shadow hover:bg-blue-600 transition">
-            Learn More
-          </button>
         </div>
 
         {/* Image Section */}

@@ -1,75 +1,161 @@
-import React, { useState } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Box, IconButton } from "@mui/material";
-import { Close as CloseIcon } from '@mui/icons-material';
+import React, { useState, useCallback } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Button,
+  Modal,
+  Box,
+  Typography,
+  Paper,
+} from "@mui/material";
+import { Edit, Delete } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom"; 
 
-const initialEvents = [
-  { id: 1, eventTitle: "Music Concert", eventDate: "2024-12-15", eventDescription: "An exciting music concert with live performances." },
-  { id: 2, eventTitle: "Art Exhibition", eventDate: "2024-12-20", eventDescription: "A beautiful exhibition showcasing modern art." },
-  { id: 3, eventTitle: "Tech Conference", eventDate: "2024-12-22", eventDescription: "A conference on the latest trends in technology." },
+const events = [
+  {
+    id: 1,
+    eventName: "Music Concert",
+    name: "John Doe",
+    description: "Live music performances at the city hall.",
+  },
+  {
+    id: 2,
+    eventName: "Tech Conference",
+    name: "Jane Smith",
+    description: "Discussing innovations in technology.",
+  },
+  {
+    id: 3,
+    eventName: "Art Exhibition",
+    name: "Alice Brown",
+    description: "Exhibit of contemporary art by local artists.",
+  },
 ];
 
-const EventRecordPage = () => {
-  const [open, setOpen] = useState(false);
+const EventRecord = () => {
+  const navigate = useNavigate(); 
+  const [openModal, setOpenModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [events, setEvents] = useState(initialEvents);
+  const [eventsList, setEventsList] = useState(events);
 
-  const handleDetailClick = (event) => {
+  const handleDetailClick = useCallback((event) => {
     setSelectedEvent(event);
-    setOpen(true);
-  };
+    setOpenModal(true);
+  }, []);
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseModal = useCallback(() => {
+    setOpenModal(false);
     setSelectedEvent(null);
+  }, []);
+
+  const handleDelete = useCallback(
+    (id) => {
+      const updatedEvents = eventsList.filter((event) => event.id !== id);
+      setEventsList(updatedEvents);
+    },
+    [eventsList]
+  );
+
+  const handleAddNewEvent = () => {
+    navigate("/create-event"); 
   };
 
-  const handleDelete = (eventId) => {
-    const updatedEvents = events.filter((event) => event.id !== eventId);
-    setEvents(updatedEvents);
+  const handleGoToProfile = () => {
+    navigate("/profilepage"); 
   };
 
   return (
-    <div style={{ padding: "40px 20px", backgroundColor: "#f4f6f8", minHeight: "100vh" }}>
-      <Typography variant="h4" align="center" gutterBottom style={{ fontWeight: 600, color: "#3f51b5" }}>
+    <Box sx={{ p: 4, bgcolor: "background.default", minHeight: "100vh" }}>
+      <Typography
+        variant="h4"
+        sx={{
+          textAlign: "center",
+          mb: 3,
+          fontWeight: "bold",
+          color: "primary.main",
+        }}
+      >
         Event Record
       </Typography>
 
-      <Box display="flex" justifyContent="space-between" marginBottom="20px">
-        <Button variant="contained" color="primary" style={{ marginLeft: "10px", padding: "8px 20px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddNewEvent}
+        >
           Add New Event
         </Button>
-        <Button variant="contained" color="primary" style={{ marginRight: "10px", padding: "8px 20px" }}>
-          Go to Profile
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleGoToProfile} 
+        >
+          Go to Profile Page
         </Button>
       </Box>
 
-      <TableContainer component={Paper} elevation={6} style={{ borderRadius: "8px", marginTop: "20px", boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" }}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          borderRadius: 2,
+          boxShadow: 3,
+        }}
+      >
         <Table>
-          <TableHead style={{ backgroundColor: "#3f51b5", color: "white" }}>
+          <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow>
-              <TableCell style={{ fontWeight: 600, fontSize: "1rem", color: "white" }}>Event Title</TableCell>
-              <TableCell style={{ fontWeight: 600, fontSize: "1rem", color: "white" }}>Event Date</TableCell>
-              <TableCell style={{ fontWeight: 600, fontSize: "1rem", color: "white" }}>Action</TableCell>
+              {["Event Title", "Name", "Action"].map((header) => (
+                <TableCell
+                  key={header}
+                  sx={{
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                  }}
+                >
+                  {header}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {events.map((event) => (
-              <TableRow key={event.id} style={{ cursor: "pointer", '&:hover': { backgroundColor: "#f1f1f1" } }}>
-                <TableCell style={{ fontSize: "1rem", padding: "16px" }}>{event.eventTitle}</TableCell>
-                <TableCell style={{ fontSize: "1rem", padding: "16px" }}>{event.eventDate}</TableCell>
-                <TableCell style={{ padding: "16px", display: "flex", gap: "10px" }}>
+            {eventsList.map((row) => (
+              <TableRow
+                key={row.id}
+                sx={{
+                  bgcolor: "#f9f9f9",
+                  "&:hover": { bgcolor: "#f1f5fb" },
+                }}
+              >
+                <TableCell>{row.eventName}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>
                   <Button
                     variant="contained"
                     color="primary"
-                    style={{ padding: "8px 20px" }}
-                    onClick={() => handleDetailClick(event)}
+                    sx={{ mr: 1 }}
+                    onClick={() => handleDetailClick(row)}
                   >
                     Detail
                   </Button>
                   <Button
-                    variant="outlined"
-                    style={{ color: "#9c27b0", borderColor: "#9c27b0", fontWeight: 600, padding: "8px 20px" }}
-                    onClick={() => handleDelete(event.id)}
+                    variant="contained"
+                    color="secondary"
+                    sx={{ mr: 1 }}
+                    onClick={() => handleDelete(row.id)}
+                    startIcon={<Delete />}
                   >
                     Delete
                   </Button>
@@ -80,26 +166,59 @@ const EventRecordPage = () => {
         </Table>
       </TableContainer>
 
-      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-        <DialogTitle style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Typography variant="h6" style={{ fontWeight: 600, color: "#3f51b5" }}>Event Details</Typography>
-          <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent>
-          <Typography variant="body1" style={{ padding: "10px 0", lineHeight: 1.6 }}>
-            {selectedEvent?.eventDescription}
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary" variant="contained" style={{ backgroundColor: "#3f51b5" }}>
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+      {selectedEvent && (
+        <Modal open={openModal} onClose={handleCloseModal}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "90%",
+              maxWidth: 600,
+              bgcolor: "background.paper",
+              borderRadius: 2,
+              boxShadow: 4,
+              p: 3,
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: "bold",
+                mb: 2,
+                textAlign: "center",
+                color: "primary.main",
+              }}
+            >
+              Event Details
+            </Typography>
+            <Box
+              sx={{
+                bgcolor: "#f4f6f8",
+                p: 2,
+                borderRadius: 1,
+                mb: 2,
+              }}
+            >
+              <Typography sx={{ mb: 1 }}>
+                <strong>Description:</strong> {selectedEvent.description}
+              </Typography>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleCloseModal}
+              >
+                Close
+              </Button>
+            </Box>
+          </Box>
+        </Modal>
+      )}
+    </Box>
   );
 };
 
-export default EventRecordPage;
+export default EventRecord;

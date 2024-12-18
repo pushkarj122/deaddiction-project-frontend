@@ -15,15 +15,54 @@ import {
 import { Edit, Delete } from "@mui/icons-material";
 
 const randomData = [
-  { id: 1, name: "John Doe", gender: "Male", age: 32, mobile: "1234567890", address: "123 Main St" },
-  { id: 2, name: "Jane Smith", gender: "Female", age: 28, mobile: "9876543210", address: "456 Oak Ave" },
-  { id: 3, name: "Robert Brown", gender: "Male", age: 45, mobile: "4567891230", address: "789 Pine Blvd" },
+  {
+    id: 1,
+    name: "John Doe",
+    gender: "Male",
+    age: 32,
+    mobile: "1234567890",
+    address: "123 Main St",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    gender: "Female",
+    age: 28,
+    mobile: "9876543210",
+    address: "456 Oak Ave",
+  },
+  {
+    id: 3,
+    name: "Robert Brown",
+    gender: "Male",
+    age: 45,
+    mobile: "4567891230",
+    address: "789 Pine Blvd",
+  },
 ];
 
 const treatmentDetails = [
-  { admissionDate: "2023-12-01", problem: "Fractured Leg", treatmentSummary: "Surgery performed successfully.", progressSummary: "Healing as expected.", dischargeDate: "2023-12-10" },
-  { admissionDate: "2023-11-15", problem: "High Fever", treatmentSummary: "Administered antibiotics.", progressSummary: "Fully recovered.", dischargeDate: "2023-11-20" },
-  { admissionDate: "2023-10-01", problem: "Broken Arm", treatmentSummary: "Cast applied.", progressSummary: "Rehabilitation ongoing.", dischargeDate: "2023-10-15" },
+  {
+    admissionDate: "2023-12-01",
+    problem: "Fractured Leg",
+    treatmentSummary: "Surgery performed successfully.",
+    progressSummary: "Healing as expected.",
+    dischargeDate: "2023-12-10",
+  },
+  {
+    admissionDate: "2023-11-15",
+    problem: "High Fever",
+    treatmentSummary: "Administered antibiotics.",
+    progressSummary: "Fully recovered.",
+    dischargeDate: "2023-11-20",
+  },
+  {
+    admissionDate: "2023-10-01",
+    problem: "Broken Arm",
+    treatmentSummary: "Cast applied.",
+    progressSummary: "Rehabilitation ongoing.",
+    dischargeDate: "2023-10-15",
+  },
 ];
 
 const PatientRecord = () => {
@@ -41,10 +80,13 @@ const PatientRecord = () => {
     setSelectedTreatment(null);
   }, []);
 
-  const handleDelete = useCallback((id) => {
-    const updatedPatients = patients.filter((patient) => patient.id !== id);
-    setPatients(updatedPatients);
-  }, [patients]);
+  const handleDelete = useCallback(
+    (id) => {
+      const updatedPatients = patients.filter((patient) => patient.id !== id);
+      setPatients(updatedPatients);
+    },
+    [patients]
+  );
 
   const handleDownloadPDF = () => {
     alert("Download PDF feature is not implemented yet.");
@@ -72,10 +114,10 @@ const PatientRecord = () => {
           mb: 3,
         }}
       >
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" href="/add-patient">
           Add New Data
         </Button>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" href="/profilepage">
           Go to Profile Page
         </Button>
       </Box>
@@ -90,18 +132,20 @@ const PatientRecord = () => {
         <Table>
           <TableHead sx={{ bgcolor: "primary.main" }}>
             <TableRow>
-              {["Name", "Gender", "Age", "Mobile No", "Address", "Action"].map((header) => (
-                <TableCell
-                  key={header}
-                  sx={{
-                    color: "white",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                  }}
-                >
-                  {header}
-                </TableCell>
-              ))}
+              {["Name", "Gender", "Age", "Mobile No", "Address", "Action"].map(
+                (header) => (
+                  <TableCell
+                    key={header}
+                    sx={{
+                      color: "white",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                    }}
+                  >
+                    {header}
+                  </TableCell>
+                )
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -161,7 +205,12 @@ const PatientRecord = () => {
           >
             <Typography
               variant="h5"
-              sx={{ fontWeight: "bold", mb: 2, textAlign: "center", color: "primary.main" }}
+              sx={{
+                fontWeight: "bold",
+                mb: 2,
+                textAlign: "center",
+                color: "primary.main",
+              }}
             >
               Treatment Details
             </Typography>
