@@ -9,7 +9,14 @@ const ProfileDescription = () => {
           Welcome to Serenity Addiction Hospital
         </h2>
         <p className="text-base text-gray-700">
-          Serenity Addiction Hospital is a leading healthcare provider specializing in the treatment and rehabilitation of addiction. Our state-of-the-art facility offers personalized care programs, highly trained professionals, and a comfortable environment to aid in recovery. We are committed to helping our patients achieve long-term success and a healthy life. Our approach is compassionate and tailored to each individual’s needs, ensuring they receive the best care available.
+          Serenity Addiction Hospital is a leading healthcare provider
+          specializing in the treatment and rehabilitation of addiction. Our
+          state-of-the-art facility offers personalized care programs, highly
+          trained professionals, and a comfortable environment to aid in
+          recovery. We are committed to helping our patients achieve long-term
+          success and a healthy life. Our approach is compassionate and tailored
+          to each individual’s needs, ensuring they receive the best care
+          available.
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-8 text-gray-700">

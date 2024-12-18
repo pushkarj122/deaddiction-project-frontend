@@ -42,7 +42,7 @@ const LandingpageNavbar = () => {
           </div>
           <h1 className="text-3xl font-semibold text-sky-700">DeAddiction</h1>
         </div>
-        
+
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <FiMenu className="text-3xl" />

@@ -15,9 +15,24 @@ import {
 import { Edit, Delete } from "@mui/icons-material";
 
 const events = [
-  { id: 1, eventName: "Music Concert", name: "John Doe", description: "Live music performances at the city hall." },
-  { id: 2, eventName: "Tech Conference", name: "Jane Smith", description: "Discussing innovations in technology." },
-  { id: 3, eventName: "Art Exhibition", name: "Alice Brown", description: "Exhibit of contemporary art by local artists." },
+  {
+    id: 1,
+    eventName: "Music Concert",
+    name: "John Doe",
+    description: "Live music performances at the city hall.",
+  },
+  {
+    id: 2,
+    eventName: "Tech Conference",
+    name: "Jane Smith",
+    description: "Discussing innovations in technology.",
+  },
+  {
+    id: 3,
+    eventName: "Art Exhibition",
+    name: "Alice Brown",
+    description: "Exhibit of contemporary art by local artists.",
+  },
 ];
 
 const EventRecord = () => {
@@ -35,10 +50,13 @@ const EventRecord = () => {
     setSelectedEvent(null);
   }, []);
 
-  const handleDelete = useCallback((id) => {
-    const updatedEvents = eventsList.filter((event) => event.id !== id);
-    setEventsList(updatedEvents);
-  }, [eventsList]);
+  const handleDelete = useCallback(
+    (id) => {
+      const updatedEvents = eventsList.filter((event) => event.id !== id);
+      setEventsList(updatedEvents);
+    },
+    [eventsList]
+  );
 
   const handleGoToProfile = () => {
     alert("Navigate to profile page (implement navigation here).");
@@ -152,7 +170,12 @@ const EventRecord = () => {
           >
             <Typography
               variant="h5"
-              sx={{ fontWeight: "bold", mb: 2, textAlign: "center", color: "primary.main" }}
+              sx={{
+                fontWeight: "bold",
+                mb: 2,
+                textAlign: "center",
+                color: "primary.main",
+              }}
             >
               Event Details
             </Typography>

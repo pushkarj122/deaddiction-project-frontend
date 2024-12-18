@@ -17,7 +17,6 @@ const ProfileCard = () => {
           alt="Hospital"
           className="w-full h-full rounded-xl object-cover shadow-lg border-2 border-sky-500"
         />
-        
       </div>
       <div className="ml-0 md:ml-16 mt-8 md:mt-0 flex-1">
         <h2 className="text-3xl font-semibold text-sky-700 mb-6">
